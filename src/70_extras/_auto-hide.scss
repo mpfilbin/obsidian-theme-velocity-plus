@@ -10,6 +10,12 @@
 		display: none;
 	}
 	body:not(.is-mobile, .is-popout-window, .disable-autohide) {
+		// Obsidian subtracts the ribbon width from the macOS window-control space
+		// (--frame-left-space: 80px - --frame-ribbon-left). The ribbon is hidden here,
+		// so reserve the full space or the first tab slides under the traffic lights
+		// (Velocity issue #156).
+		--frame-ribbon-left: 0px;
+		--frame-ribbon-right: 0px;
 		background: var(--background-primary);
 		--frame-right-space: 0px;
 		--shadow-workspace: none;
@@ -62,7 +68,7 @@
 	body:not(.is-mobile, .is-popout-window, .disable-autohide, .disable-status-fade).mod-macos .workspace .workspace-tabs.mod-top.mod-top-right-space:last-of-type .workspace-tab-header-container {
 		padding-right: 8px;
 	}
-	body:not(.is-mobile,.is-popout-window,.disable-autohide,.disable-status-fade).mod-macos .workspace .workspace-tabs.mod-top:first-of-type .workspace-tab-header-container {
+	body:not(.is-mobile, .is-popout-window, .disable-autohide).mod-macos .workspace .workspace-tabs.mod-top:first-of-type .workspace-tab-header-container {
 		padding-left: calc(var(--frame-left-space) + 8px);
 	}
 }

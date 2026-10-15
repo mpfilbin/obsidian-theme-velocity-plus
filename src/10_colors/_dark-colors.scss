@@ -85,7 +85,10 @@
 	--trans-white-00: oklch(var(--bl-100) 0 0 / 0.75);
 	--trans-white-10: oklch(var(--bl-100) 0 0 / 0.625);
 
-	--text-normal: var(--color-base-90);
+	// Hex fallback (the default paint's base-90) applies if the oklch chain behind
+	// --color-base-90 ever fails to resolve, instead of text turning black
+	// (Velocity issue #153).
+	--text-normal: var(--color-base-90, #cdcdd0);
 	--text-selection: oklab(from var(--color-accent) l a b / 0.25);
 
 	--text-highlight-bg: oklch(from var(--color-highlight) 0.8 calc(c * 1.375) h / 0.33);

@@ -74,13 +74,16 @@ body:not(.is-phone) .mod-sidedock {
 	--tag-size: var(--metadata-input-font-size);
 }
 
-.bases-table-cell > .multi-select-container > .multi-select-pill {
-	contain: content;
-	--pill-padding-x: 8px 4px;
-}
+// Obsidian uses --pill-padding-x as a single length (in margin-inline-start and
+// min()), so a two-value "8px 4px" made both margins invalid and the paint
+// containment then clipped the text against the remove button (Velocity issue #142).
+.bases-table-cell > .multi-select-container > .multi-select-pill,
 .bases-table-cell[data-property-type="tags"] .multi-select-pill {
-	contain: content;
-	--pill-padding-x: 8px 4px;
+	--pill-padding-x: 8px;
+
+	.multi-select-pill-remove-button {
+		margin-inline-end: 4px;
+	}
 }
 
 .bases-group-heading {

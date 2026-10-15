@@ -208,27 +208,29 @@ input.metadata-input {
 .mod-sidedock .multi-select-container {
 	padding-block: 0;
 }
+// Scoped to sidebars: unscoped, this also stacked note properties on phones,
+// where the properties area is narrower than 320px (Velocity issue #145).
 @container (width < 320px) {
-	.metadata-property {
+	.mod-sidedock .metadata-property {
 		flex-direction: column;
 		flex-wrap: wrap;
 		border-top: 1px solid var(--metadata-divider-color);
 	}
-	.metadata-property:first-child {
+	.mod-sidedock .metadata-property:first-child {
 		border-top: none;
 	}
-	.metadata-property > .metadata-property-key {
+	.mod-sidedock .metadata-property > .metadata-property-key {
 		border-block-end: 0;
 		padding-block: 6px;
 		width: 100%;
 	}
-	.metadata-property > .metadata-property-value {
+	.mod-sidedock .metadata-property > .metadata-property-value {
 		padding-inline-start: calc(var(--icon-size) + 3px);
 	}
-	.metadata-property > .metadata-property-value > * {
+	.mod-sidedock .metadata-property > .metadata-property-value > * {
 		padding-block: 4px;
 	}
-	.metadata-property > .metadata-property-value > .multi-select-container {
+	.mod-sidedock .metadata-property > .metadata-property-value > .multi-select-container {
 		padding-block: 0 2px;
 	}
 }
