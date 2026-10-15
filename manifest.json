@@ -1,0 +1,11 @@
+{
+	"name": "Velocity Plus",
+	"version": "1.0.0",
+	"minAppVersion": "1.14.0",
+	"author": "Michael Filbin",
+	"screenshot": "./assets/thumbnail.png",
+	"modes": [
+		"light",
+		"dark"
+	]
+}

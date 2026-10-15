@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+    branches: ['**']
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      # BRAT installs themes straight from theme.css on the default branch,
+      # so the committed build must match the source.
+      - name: Check committed theme.css is up to date
+        run: |
+          if ! git diff --quiet -- theme.css; then
+            echo "::error file=theme.css::theme.css is out of date. Run 'npm run build' and commit the result."
+            exit 1
+          fi

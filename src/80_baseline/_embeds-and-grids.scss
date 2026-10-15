@@ -1,0 +1,55 @@
+// EMBEDS
+// `embed-strict` removes the embed background/border; `embed-hide-title` hides embed titles.
+
+.embed-strict {
+	--embed-border-start: none;
+	--embed-border-left: none;
+	--embed-background: transparent;
+	--embed-padding: 0;
+}
+.embed-hide-title .embed-title {
+	display: none;
+}
+
+// IMAGE GRID
+// `img-grid` lays out consecutive images on one line in a row.
+
+.img-grid .markdown-preview-section {
+	.el-p > p:has(> .image-embed):has(span:last-child),
+	.el-p > p:has(> img):not(:has(> :not(img))) {
+		--p-spacing: 4px;
+		display: flex;
+		gap: var(--img-grid-gap);
+		line-height: 0;
+
+		br {
+			display: none;
+		}
+
+		> img,
+		> .image-embed {
+			flex: 1;
+			object-fit: cover;
+		}
+
+		img {
+			height: stretch;
+			overflow: auto;
+			object-fit: cover;
+		}
+	}
+}
+
+// BASES
+// `bases-row-alt` / `bases-col-alt` stripe table views; `bases-plain` hides the embedded toolbar.
+
+.bases-row-alt .bases-tbody .bases-tr:nth-child(odd) {
+	background-color: var(--background-modifier-hover);
+}
+.bases-col-alt .bases-tbody .bases-tr > .bases-td:nth-child(2n + 2) {
+	background-color: var(--background-modifier-hover);
+}
+
+.bases-plain .bases-header {
+	display: none;
+}

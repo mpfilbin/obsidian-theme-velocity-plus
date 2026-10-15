@@ -1,0 +1,255 @@
+/* @settings
+name: Velocity Plus - Baseline Features
+id: velocity-plus-baseline
+settings:
+  -
+    id: vp-info
+    title: About these settings
+    description: "Features adapted from the Baseline theme. Everything here can also be applied per note with `cssclasses` — these settings set vault-wide defaults."
+    type: info-text
+    markdown: true
+  -
+    id: vp-heading-banners
+    title: Banners
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: banner-off
+    title: Disable banners
+    description: "Turns off the `banner`, `banner-icon`, and `banner-title` cssclasses."
+    type: class-toggle
+  -
+    id: banner-image-height
+    title: Banner height
+    type: variable-number-slider
+    default: 320
+    min: 120
+    max: 640
+    step: 10
+    format: px
+  -
+    id: banner-image-height-s
+    title: Banner height (mobile)
+    type: variable-number-slider
+    default: 240
+    min: 80
+    max: 480
+    step: 10
+    format: px
+  -
+    id: banner-fade-height
+    title: Banner fade height
+    description: "Used with the `banner-fade` cssclass."
+    type: variable-number-slider
+    default: 80
+    min: 0
+    max: 240
+    step: 10
+    format: px
+  -
+    id: banner-image-radius
+    title: Banner corner radius
+    type: variable-number-slider
+    default: 8
+    min: 0
+    max: 32
+    step: 1
+    format: px
+  -
+    id: vp-heading-width
+    title: Block width
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: block-width-off
+    title: Disable block width classes
+    description: "Turns off `wide`, `max`, and the `table-*`, `img-*`, `bases-*` width classes."
+    type: class-toggle
+  -
+    id: line-width-wide
+    title: Wide line width
+    description: "Width used by `wide`, `table-wide`, `img-wide`, and `bases-wide`."
+    type: variable-text
+    default: 50rem
+  -
+    id: vp-table-width
+    title: Default table width
+    type: class-select
+    allowEmpty: false
+    default: vp-table-default
+    options:
+      - label: Line width
+        value: vp-table-default
+      - label: Wide
+        value: table-wide
+      - label: Max
+        value: table-max
+      - label: Full pane (100%)
+        value: table-100
+  -
+    id: vp-img-width
+    title: Default image width
+    type: class-select
+    allowEmpty: false
+    default: vp-img-default
+    options:
+      - label: Line width
+        value: vp-img-default
+      - label: Wide
+        value: img-wide
+      - label: Max
+        value: img-max
+      - label: Full pane (100%)
+        value: img-100
+  -
+    id: vp-bases-width
+    title: Default embedded Bases width
+    type: class-select
+    allowEmpty: false
+    default: vp-bases-default
+    options:
+      - label: Line width
+        value: vp-bases-default
+      - label: Wide
+        value: bases-wide
+      - label: Max
+        value: bases-max
+      - label: Full pane (100%)
+        value: bases-100
+  -
+    id: vp-heading-tables
+    title: Tables
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: row-alt
+    title: Striped rows
+    type: class-toggle
+  -
+    id: col-alt
+    title: Striped columns
+    type: class-toggle
+  -
+    id: row-hover
+    title: Highlight rows on hover
+    type: class-toggle
+  -
+    id: row-lines
+    title: Lines between rows
+    type: class-toggle
+  -
+    id: col-lines
+    title: Lines between columns
+    type: class-toggle
+  -
+    id: table-lines
+    title: Borders around all cells
+    type: class-toggle
+  -
+    id: table-numbers
+    title: Row numbers
+    type: class-toggle
+  -
+    id: table-tabular
+    title: Tabular figures
+    type: class-toggle
+  -
+    id: table-center
+    title: Center narrow tables
+    type: class-toggle
+  -
+    id: table-nowrap
+    title: Disable line wrapping in cells
+    type: class-toggle
+  -
+    id: vp-table-size
+    title: Table text size
+    type: class-select
+    allowEmpty: false
+    default: vp-table-size-default
+    options:
+      - label: Default
+        value: vp-table-size-default
+      - label: Small
+        value: table-small
+      - label: Tiny
+        value: table-tiny
+  -
+    id: vp-heading-bases
+    title: Bases
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: bases-row-alt
+    title: Striped rows in table views
+    type: class-toggle
+  -
+    id: bases-col-alt
+    title: Striped columns in table views
+    type: class-toggle
+  -
+    id: bases-plain
+    title: Hide the toolbar on embedded Bases
+    type: class-toggle
+  -
+    id: vp-heading-embeds
+    title: Embeds and images
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: embed-strict
+    title: Remove embed background and border
+    type: class-toggle
+  -
+    id: embed-hide-title
+    title: Hide embedded file titles
+    type: class-toggle
+  -
+    id: img-grid-gap
+    title: Image grid gap
+    description: "Spacing between images in notes with the `img-grid` cssclass."
+    type: variable-number-slider
+    default: 4
+    min: 0
+    max: 24
+    step: 1
+    format: px
+  -
+    id: vp-heading-cards
+    title: Cards
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: cards-min-width
+    title: Minimum card width
+    type: variable-number-slider
+    default: 160
+    min: 80
+    max: 400
+    step: 10
+    format: px
+  -
+    id: cards-mobile-width
+    title: Minimum card width (mobile)
+    type: variable-number-slider
+    default: 120
+    min: 60
+    max: 300
+    step: 10
+    format: px
+  -
+    id: cards-image-height
+    title: Maximum card image height
+    type: variable-number-slider
+    default: 400
+    min: 100
+    max: 800
+    step: 20
+    format: px
+*/

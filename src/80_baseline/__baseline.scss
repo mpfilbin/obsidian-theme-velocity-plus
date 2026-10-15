@@ -1,0 +1,18 @@
+/*
+----------------------------------
+	80_BASELINE
+	Features adapted from Baseline by svnaxis
+	https://github.com/svnaxis/obsidian-baseline
+	MIT License | Copyright (c) 2026 svnaxis
+
+	Portions originate from Minimal by kepano
+	MIT License | Copyright (c) Stephan Ango (@kepano)
+----------------------------------
+*/
+
+// Variables Baseline's features expect that Velocity doesn't define.
+body {
+	--anim-motion-baseline: cubic-bezier(0.1, 0, 0.1, 1.25);
+	--anim-duration-moderate: 320ms;
+	--img-grid-gap: 4px;
+}
