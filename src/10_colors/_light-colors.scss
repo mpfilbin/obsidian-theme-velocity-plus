@@ -77,7 +77,8 @@
 	--trans-white-00: oklch(var(--bl-00) 0 0 / 0.75);
 	--trans-white-10: oklch(var(--bl-00) 0 0 / 0.625);
 
-	--text-normal: var(--color-base-90);
+	// Hex fallback (the default paint's base-90); see the note in _dark-colors.
+	--text-normal: var(--color-base-90, #2d2e2f);
 	--text-selection: oklab(from var(--color-accent) l a b / 0.15);
 
 	--text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.33);
