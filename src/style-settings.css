@@ -111,6 +111,13 @@ settings:
 	description: Inline code is given a unique color to make it easier to distinguish from regular text.
 	type: class-toggle
 -
+	id: code-special
+	title: Code text color
+	description: Customize the unique code text color above. Defaults to your accent color - use the reset button to revert.
+	type: variable-color
+	format: hex
+	default: var(--color-accent)
+-
 	id: ss-section-title
 	description: Theme layout
 	type: info-text
