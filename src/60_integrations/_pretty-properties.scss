@@ -90,13 +90,6 @@ body[class*="pp-pill-padding"] {
     .tag-pane-tag > .tree-item-inner > .tree-item-inner-text {
         overflow: visible;
     }
-    .tag-pane-tag-parent + .tree-item-inner-text[data-tag-value]:not([data-tag-value=""]) {
-        border-radius: var(--tag-radius);
-        padding: var(--pill-padding-y) var(--pill-padding-x);
-    }
-    .tag-pane-tag-parent + .tree-item-inner-text[data-tag-value]:not([data-tag-value=""]):not(.theme-color, .transparent-color, .custom-color) {
-        background-color: var(--background-modifier-hover);
-    }
 }
 
 // Pretty properties settings
