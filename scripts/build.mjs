@@ -14,6 +14,7 @@ import * as sass from "sass";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const entry = join(root, "src", "theme.scss");
+const rawFiles = ["raw-overrides.css"].map((f) => join(root, "src", f));
 const settingsFiles = ["style-settings.css", "style-settings-plus.css"].map((f) => join(root, "src", f));
 const out = join(root, "theme.css");
 const vaultDir = process.env.OBSIDIAN_THEME_DIR;
@@ -22,7 +23,8 @@ function build() {
   // charset: false keeps Sass from prepending a BOM when sources contain non-ASCII.
   const { css } = sass.compile(entry, { style: "compressed", charset: false });
   const settings = settingsFiles.filter(existsSync).map((f) => readFileSync(f, "utf8"));
-  const combined = [css, ...settings].join("\n");
+  const raw = rawFiles.filter(existsSync).map((f) => readFileSync(f, "utf8"));
+  const combined = [css, ...raw, ...settings].join("\n");
   writeFileSync(out, combined);
 
   if (vaultDir) {

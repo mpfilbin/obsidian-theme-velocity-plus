@@ -1,0 +1,4 @@
+/* Plain CSS, appended verbatim by scripts/build.mjs. Dart Sass 1.106.0 crashes on
+   empty attribute values like [data-tag-value=""], so those rules live here. */
+body[class*="pp-pill-padding"] .tag-pane-tag-parent + .tree-item-inner-text[data-tag-value]:not([data-tag-value=""]){border-radius:var(--tag-radius);padding:var(--pill-padding-y) var(--pill-padding-x)}
+body[class*="pp-pill-padding"] .tag-pane-tag-parent + .tree-item-inner-text[data-tag-value]:not([data-tag-value=""]):not(.theme-color,.transparent-color,.custom-color){background-color:var(--background-modifier-hover)}
