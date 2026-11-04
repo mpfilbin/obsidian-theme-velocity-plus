@@ -130,10 +130,34 @@ body:is(.code-line-numbers, .code-language-banner) .markdown-rendered pre:not(.f
 	}
 }
 
-// Language banner (reading view)
-body.code-language-banner .markdown-rendered pre:has(> .code-block-flair) {
+// Language banner (reading view). Obsidian's `.code-block-flair` label isn't reliably present in
+// reading view, so the banner is a pseudo-element on <pre>, titled from its `language-xxx` class.
+// CSS can't turn a class name into text, so common languages are mapped below; any other
+// language shows "Code".
+$code-languages: (
+	"abap": "ABAP", "apache": "Apache", "applescript": "AppleScript", "bash": "Bash", "bat": "Batch",
+	"c": "C", "clojure": "Clojure", "cmake": "CMake", "cpp": "C++", "cs": "C#", "csharp": "C#",
+	"css": "CSS", "dart": "Dart", "diff": "Diff", "dockerfile": "Dockerfile", "elixir": "Elixir",
+	"erlang": "Erlang", "fish": "Fish", "fsharp": "F#", "go": "Go", "golang": "Go", "graphql": "GraphQL",
+	"groovy": "Groovy", "haskell": "Haskell", "hcl": "HCL", "html": "HTML", "ini": "INI", "java": "Java",
+	"javascript": "JavaScript", "js": "JavaScript", "json": "JSON", "jsonc": "JSON", "jsx": "JSX",
+	"julia": "Julia", "kotlin": "Kotlin", "kt": "Kotlin", "latex": "LaTeX", "less": "Less", "lisp": "Lisp",
+	"lua": "Lua", "makefile": "Makefile", "markdown": "Markdown", "md": "Markdown", "matlab": "MATLAB",
+	"nginx": "Nginx", "nix": "Nix", "objc": "Objective-C", "ocaml": "OCaml", "perl": "Perl", "php": "PHP",
+	"powershell": "PowerShell", "ps1": "PowerShell", "protobuf": "Protobuf", "py": "Python",
+	"python": "Python", "r": "R", "rb": "Ruby", "ruby": "Ruby", "rs": "Rust", "rust": "Rust",
+	"scala": "Scala", "scss": "SCSS", "sh": "Shell", "shell": "Shell", "shellscript": "Shell",
+	"sql": "SQL", "swift": "Swift", "terraform": "Terraform", "text": "Text", "toml": "TOML",
+	"ts": "TypeScript", "tsx": "TSX", "typescript": "TypeScript", "vb": "Visual Basic", "vim": "Vim",
+	"xml": "XML", "yaml": "YAML", "yml": "YAML", "zsh": "Zsh"
+);
+
+body.code-language-banner .markdown-rendered pre[class*="language-"] {
+	position: relative;
 	padding-top: calc(var(--code-banner-height) + 0.5rem);
-	.code-block-flair {
+	.code-block-flair { display: none; }
+	&::before {
+		content: "Code";
 		position: absolute;
 		inset: 0 0 auto 0;
 		height: var(--code-banner-height);
@@ -142,8 +166,8 @@ body.code-language-banner .markdown-rendered pre:has(> .code-block-flair) {
 		padding-inline: 1rem;
 		background: var(--code-banner-background);
 		color: var(--text-muted);
+		font-family: var(--font-interface);
 		font-size: var(--font-smallest);
-		opacity: 1;
 		pointer-events: none;
 		border-start-start-radius: inherit;
 		border-start-end-radius: inherit;
@@ -151,6 +175,11 @@ body.code-language-banner .markdown-rendered pre:has(> .code-block-flair) {
 	.copy-code-button {
 		z-index: 1;
 		inset-block-start: calc((var(--code-banner-height) - 1.5rem) / 2);
+	}
+}
+@each $lang, $name in $code-languages {
+	body.code-language-banner .markdown-rendered pre.language-#{$lang}::before {
+		content: $name;
 	}
 }
 
