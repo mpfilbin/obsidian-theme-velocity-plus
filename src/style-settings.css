@@ -118,6 +118,11 @@ settings:
 	format: hex
 	default: var(--color-accent)
 -
+	id: syntax-vscode-dark
+	title: VS Code Dark syntax highlighting
+	description: Colors code fences with the VS Code Dark+ palette on a dark background, in both reading view and live preview. Inline code is unaffected.
+	type: class-toggle
+-
 	id: ss-section-title
 	description: Theme layout
 	type: info-text

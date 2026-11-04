@@ -118,6 +118,10 @@ Baseline's additional types are restyled to match:
 |         |            | `- [d]` | Down       | `- [P]` | Phone      |
 |         |            |         |            | `- [L]` | Love       |
 
+### Code syntax highlighting
+
+Under **Velocity - Quick Settings** in Style Settings, turn on **VS Code Dark syntax highlighting** to color code fences with the VS Code Dark+ palette (on a `#1e1e1e` background, so it also reads well in light mode). It applies to reading view and live preview; inline code keeps its own color.
+
 ## Development
 
 Requires Node.js 20+ and Git.

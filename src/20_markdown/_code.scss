@@ -20,3 +20,41 @@ body.enable-special-code {
 .HyperMD-codeblock-end {
 	--code-radius: var(--radius-sm);
 }
+
+// Syntax highlighting: VS Code Dark+ palette (Style Settings: "VS Code Dark syntax highlighting").
+// Scoped to code fences so inline code keeps the theme's own colors. The dark
+// background is applied too, so the palette stays readable in light mode.
+body.syntax-vscode-dark {
+	.markdown-rendered pre,
+	.HyperMD-codeblock,
+	.cm-hmd-indented-code {
+		--code-background: #1e1e1e;
+		--code-normal: #d4d4d4;
+		--code-comment: #6a9955;
+		--code-function: #dcdcaa;
+		--code-important: #c586c0;
+		--code-keyword: #569cd6;
+		--code-operator: #d4d4d4;
+		--code-property: #9cdcfe;
+		--code-punctuation: #d4d4d4;
+		--code-string: #ce9178;
+		--code-tag: #569cd6;
+		--code-value: #b5cea8;
+	}
+
+	// Finer token types that Obsidian's variables don't cover (Prism in reading
+	// view, CodeMirror in live preview).
+	.markdown-rendered pre {
+		.token.class-name,
+		.token.builtin { color: #4ec9b0; }
+		.token.regex { color: #d16969; }
+		.token.variable { color: #9cdcfe; }
+		.token.constant { color: #4fc1ff; }
+	}
+	.HyperMD-codeblock {
+		.cm-type,
+		.cm-builtin { color: #4ec9b0; }
+		.cm-variable,
+		.cm-variable-2 { color: #9cdcfe; }
+	}
+}
