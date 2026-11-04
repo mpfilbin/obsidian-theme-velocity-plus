@@ -72,6 +72,34 @@ body {
 	--code-line-number-width: 2.5em;
 }
 
+// Line numbers (reading view): a pseudo-element lists 1..N down the gutter, clipped to the
+// block's height and set in the same font and line-height as the code, so rows line up.
+// This relies on lines not wrapping (Obsidian's default for reading view) and covers
+// blocks up to $code-line-number-max lines. The gutter scrolls with the code on wide blocks.
+$code-line-number-max: 500;
+$code-line-numbers: "";
+@for $i from 1 through $code-line-number-max {
+	$code-line-numbers: $code-line-numbers + $i + "\a ";
+}
+body.code-line-numbers .markdown-rendered pre:not(.frontmatter) > code {
+	position: relative;
+	display: block;
+	padding-inline-start: calc(var(--code-line-number-width) + 0.75em);
+	&::before {
+		content: $code-line-numbers;
+		position: absolute;
+		inset-block: 0;
+		inset-inline-start: 0;
+		width: var(--code-line-number-width);
+		overflow: hidden;
+		white-space: pre;
+		text-align: end;
+		color: var(--text-faint);
+		user-select: none;
+		pointer-events: none;
+	}
+}
+
 // Line numbers (live preview)
 body.code-line-numbers .markdown-source-view.mod-cm6 .cm-content {
 	.HyperMD-codeblock-begin { counter-reset: code-line; }
@@ -90,6 +118,15 @@ body.code-line-numbers .markdown-source-view.mod-cm6 .cm-content {
 			user-select: none;
 			pointer-events: none;
 		}
+	}
+}
+
+// Scroll long lines inside <code>, not <pre>, so the banner and Copy button stay put.
+body:is(.code-line-numbers, .code-language-banner) .markdown-rendered pre:not(.frontmatter) {
+	overflow: visible;
+	> code {
+		display: block;
+		overflow-x: auto;
 	}
 }
 

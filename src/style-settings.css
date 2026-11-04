@@ -125,7 +125,7 @@ settings:
 -
 	id: code-line-numbers
 	title: Code block line numbers
-	description: Numbers each line in code blocks. Live preview only - reading view has no per-line elements for a theme to number.
+	description: Numbers each line in code blocks, in reading view and live preview. Reading view numbers up to 500 lines per block and assumes lines don't wrap.
 	type: class-toggle
 -
 	id: code-language-banner

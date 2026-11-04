@@ -124,7 +124,7 @@ Under **Velocity - Quick Settings** in Style Settings, turn on **VS Code Dark sy
 
 Two more toggles sit next to it, inspired by the Code Styler plugin. A theme can only use CSS, so they have limits:
 
-- **Code block line numbers** work in live preview only. Reading view renders a block as a single piece of text, so there are no lines to number without a plugin.
+- **Code block line numbers** work in both views. Live preview numbers real lines. Reading view has no per-line elements, so the theme draws a column of numbers 1-500 beside the code and clips it to the block's height. That lines up as long as code lines don't wrap, and the numbers scroll sideways with the code on wide blocks.
 - **Code block language banner** turns Obsidian's built-in language label into a banner across the top of the block, in both views. It shows the language exactly as you typed it after the opening fence.
 
 ## Development
