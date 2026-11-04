@@ -120,7 +120,17 @@ settings:
 -
 	id: syntax-vscode-dark
 	title: VS Code Dark syntax highlighting
-	description: Colors code fences with the VS Code Dark+ palette on a dark background, in both reading view and live preview. Inline code is unaffected.
+	description: Colors code blocks with the VS Code Dark+ palette on a dark background, in both reading view and live preview. Inline code is unaffected.
+	type: class-toggle
+-
+	id: code-line-numbers
+	title: Code block line numbers
+	description: Numbers each line in code blocks. Live preview only - reading view has no per-line elements for a theme to number.
+	type: class-toggle
+-
+	id: code-language-banner
+	title: Code block language banner
+	description: Shows the language name in a banner across the top of code blocks, in reading view and live preview.
 	type: class-toggle
 -
 	id: ss-section-title

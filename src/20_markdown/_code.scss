@@ -58,3 +58,73 @@ body.syntax-vscode-dark {
 		.cm-variable-2 { color: #9cdcfe; }
 	}
 }
+
+
+// Code Styler-style extras (Style Settings: "Code block line numbers", "Code block language banner").
+// A theme can only use CSS, so these work from Obsidian's own DOM:
+//  - Line numbers use CSS counters over CodeMirror's per-line elements, so they exist in
+//    live preview only. Reading view renders a block as one text node with no line elements.
+//  - The banner restyles Obsidian's built-in language label (`.code-block-flair`), so it shows
+//    the language exactly as written after the opening fence.
+body {
+	--code-banner-background: color-mix(in srgb, var(--code-normal) 8%, var(--code-background));
+	--code-banner-height: 2.25rem;
+	--code-line-number-width: 2.5em;
+}
+
+// Line numbers (live preview)
+body.code-line-numbers .markdown-source-view.mod-cm6 .cm-content {
+	.HyperMD-codeblock-begin { counter-reset: code-line; }
+	.HyperMD-codeblock:not(.HyperMD-codeblock-begin, .HyperMD-codeblock-end) {
+		counter-increment: code-line;
+		position: relative;
+		padding-inline-start: calc(var(--code-line-number-width) + 0.75em);
+		&::before {
+			content: counter(code-line);
+			position: absolute;
+			inset-block: 0;
+			inset-inline-start: 0;
+			width: var(--code-line-number-width);
+			text-align: end;
+			color: var(--text-faint);
+			user-select: none;
+			pointer-events: none;
+		}
+	}
+}
+
+// Language banner (reading view)
+body.code-language-banner .markdown-rendered pre:has(> .code-block-flair) {
+	padding-top: calc(var(--code-banner-height) + 0.5rem);
+	.code-block-flair {
+		position: absolute;
+		inset: 0 0 auto 0;
+		height: var(--code-banner-height);
+		display: flex;
+		align-items: center;
+		padding-inline: 1rem;
+		background: var(--code-banner-background);
+		color: var(--text-muted);
+		font-size: var(--font-smallest);
+		opacity: 1;
+		pointer-events: none;
+		border-start-start-radius: inherit;
+		border-start-end-radius: inherit;
+	}
+	.copy-code-button {
+		z-index: 1;
+		inset-block-start: calc((var(--code-banner-height) - 1.5rem) / 2);
+	}
+}
+
+// Language banner (live preview): the opening fence line becomes the banner.
+body.code-language-banner .markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
+	background: var(--code-banner-background);
+	min-height: var(--code-banner-height);
+	&:not(.cm-active) .code-block-flair {
+		inset-inline: 1rem auto;
+		opacity: 1;
+		color: var(--text-muted);
+		font-size: var(--font-smallest);
+	}
+}

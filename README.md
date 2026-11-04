@@ -120,7 +120,12 @@ Baseline's additional types are restyled to match:
 
 ### Code syntax highlighting
 
-Under **Velocity - Quick Settings** in Style Settings, turn on **VS Code Dark syntax highlighting** to color code fences with the VS Code Dark+ palette (on a `#1e1e1e` background, so it also reads well in light mode). It applies to reading view and live preview; inline code keeps its own color.
+Under **Velocity - Quick Settings** in Style Settings, turn on **VS Code Dark syntax highlighting** to color code blocks with the VS Code Dark+ palette (on a `#1e1e1e` background, so it also reads well in light mode). It applies to reading view and live preview; inline code keeps its own color.
+
+Two more toggles sit next to it, inspired by the Code Styler plugin. A theme can only use CSS, so they have limits:
+
+- **Code block line numbers** work in live preview only. Reading view renders a block as a single piece of text, so there are no lines to number without a plugin.
+- **Code block language banner** turns Obsidian's built-in language label into a banner across the top of the block, in both views. It shows the language exactly as you typed it after the opening fence.
 
 ## Development
 
