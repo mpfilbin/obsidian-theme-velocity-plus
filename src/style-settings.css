@@ -130,7 +130,7 @@ settings:
 -
 	id: code-language-banner
 	title: Code block language banner
-	description: Shows the language name in a banner across the top of code blocks, in reading view and live preview.
+	description: Shows the language name in a banner across the top of code blocks. Reading view also adds the language's color and icon; live preview shows a plain banner.
 	type: class-toggle
 -
 	id: ss-section-title

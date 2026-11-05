@@ -125,7 +125,7 @@ Under **Velocity - Quick Settings** in Style Settings, turn on **VS Code Dark sy
 Two more toggles sit next to it, inspired by the Code Styler plugin. A theme can only use CSS, so they have limits:
 
 - **Code block line numbers** work in both views. Live preview numbers real lines. Reading view has no per-line elements, so the theme draws a column of numbers 1-500 beside the code and clips it to the block's height. That lines up as long as code lines don't wrap, and the numbers scroll sideways with the code on wide blocks.
-- **Code block language banner** shows the language name in a bar across the top of the block, in both views. Live preview reuses Obsidian's own label, so it shows the language as you typed it. Reading view builds the bar from the block's `language-xxx` class, which CSS can't turn into text, so about 90 common languages and aliases (`js`, `py`, `sh`, `go`, ...) are mapped to display names and anything else shows "Code".
+- **Code block language banner** puts the language name in a bar across the top of the block. In reading view the bar is tinted with the language's brand color and shows its icon (about 60 common languages and aliases such as `js`, `py`, `sh` and `go`; anything else gets a neutral "Code" bar). Live preview shows a plain bar with the language as you typed it, because the editor gives CSS no way to tell which language a block is. The list comes from `scripts/generate-code-languages.mjs`, using [Simple Icons](https://simpleicons.org) (CC0); logos are trademarks of their owners.
 
 ## Development
 
