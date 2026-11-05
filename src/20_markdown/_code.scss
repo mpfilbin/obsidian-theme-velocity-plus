@@ -151,7 +151,7 @@ body.code-language-banner .markdown-rendered pre[class*="language-"] {
 		background-repeat: no-repeat;
 		background-position: 1rem 50%;
 		background-size: 1.1rem;
-		color: var(--text-muted);
+		color: var(--code-normal);
 		font-family: var(--font-interface);
 		font-size: var(--font-smallest);
 		pointer-events: none;
@@ -171,7 +171,7 @@ body.code-language-banner .markdown-source-view.mod-cm6 .HyperMD-codeblock-begin
 	&:not(.cm-active) .code-block-flair {
 		inset-inline: 1rem auto;
 		opacity: 1;
-		color: var(--text-muted);
+		color: var(--code-normal);
 		font-size: var(--font-smallest);
 	}
 }
