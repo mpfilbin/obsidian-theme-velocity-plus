@@ -64,10 +64,11 @@ body.syntax-vscode-dark {
 // A theme can only use CSS, so these work from Obsidian's own DOM:
 //  - Line numbers use CSS counters over CodeMirror's per-line elements, so they exist in
 //    live preview only. Reading view renders a block as one text node with no line elements.
-//  - The banner restyles Obsidian's built-in language label (`.code-block-flair`), so it shows
-//    the language exactly as written after the opening fence.
+//  - The banner is built differently per view: live preview restyles Obsidian's language label
+//    (`.code-block-flair`); reading view titles it from the block's `language-xxx` class.
+// The banner color is mixed from --code-normal/--code-background on the element it paints, not on
+// <body>, so it follows the block's own colors (including the VS Code Dark palette) in both views.
 body {
-	--code-banner-background: color-mix(in srgb, var(--code-normal) 8%, var(--code-background));
 	--code-banner-height: 2.25rem;
 	--code-line-number-width: 2.5em;
 }
@@ -164,7 +165,7 @@ body.code-language-banner .markdown-rendered pre[class*="language-"] {
 		display: flex;
 		align-items: center;
 		padding-inline: 1rem;
-		background: var(--code-banner-background);
+		background: color-mix(in srgb, var(--code-normal) 8%, var(--code-background));
 		color: var(--text-muted);
 		font-family: var(--font-interface);
 		font-size: var(--font-smallest);
@@ -185,7 +186,7 @@ body.code-language-banner .markdown-rendered pre[class*="language-"] {
 
 // Language banner (live preview): the opening fence line becomes the banner.
 body.code-language-banner .markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
-	background: var(--code-banner-background);
+	background: color-mix(in srgb, var(--code-normal) 8%, var(--code-background));
 	min-height: var(--code-banner-height);
 	&:not(.cm-active) .code-block-flair {
 		inset-inline: 1rem auto;
