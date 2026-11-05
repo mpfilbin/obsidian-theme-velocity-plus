@@ -112,7 +112,7 @@ for (const [name, aliases, slug, fallback] of languages) {
     if (!path) throw new Error(`No path in ${slug}.svg`);
     color = colorOf(slug) ?? fallback;
     if (color) color = legible(color);
-    const fill = (color ?? "#9a9a9a").replace("#", "%23");
+    const fill = (color ?? "#9a9a9a").replaceAll("#", "%23");
     icon = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='${fill}' d='${path}'/%3E%3C/svg%3E")`;
     icons++;
   } else if (color) {
