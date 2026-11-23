@@ -62,6 +62,21 @@ del {
 	padding-inline-end: 0.25rem;
 }
 
+// Links inside highlights
+// Links are undecorated by default (--link-decoration: none) and highlights
+// override the text color, so a link inside a highlight would otherwise be
+// indistinguishable from the surrounding text.
+:is(mark, .cm-highlight) :is(a, .cm-underline, .cm-hmd-internal-link, .cm-url),
+.cm-highlight:is(.cm-hmd-internal-link, .cm-url, .cm-underline),
+mark a {
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-color: currentColor;
+	text-decoration-thickness: 0.0625em;
+	text-underline-offset: 0.2em;
+	text-decoration-skip-ink: auto;
+}
+
 // Highlight flash (for example, when clicking on Outline items)
 .view-content .is-flashing {
 	box-shadow: 0 0 0 6px var(--text-highlight-bg);
